@@ -86,7 +86,7 @@ def list_items():
     if "user_id" not in session:
         return redirect(url_for("login"))
     with get_conn() as conn, conn.cursor(cursor_factory=RealDictCursor) as cur:
-        cur.execute("SELECT * FROM itens ORDER BY id DESC")
+        cur.execute("SELECT * FROM itens ORDER BY id_itens DESC")
         itens = cur.fetchall()
     return render_template("list_items.html", items=itens)
 
